@@ -1,11 +1,14 @@
 const fetchData = async() => {
   try {  
-    const response = await fetch('https://api.themoviedb.org/3/movie/12550/recomendations?api_key=e4b30a1db5bc22a592d00146854380c7');
+    const response = await fetch('https://api.themoviedb.org/3/movie/12550/recommendations?api_key=e4b30a1db5bc22a592d00146854380c7');
 
     console.log(response);
     if (response.status === 200){
       const data = await response.json();
-      console.log(data.title);
+      data.results.forEach(movie => {
+        console.log(movie.title)
+      });
+      console.log(data);
     }else if (response.status == 401){
       console.log('Invalid Key')
     }else if (response.status == 404){
