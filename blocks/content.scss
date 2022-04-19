@@ -1,3 +1,14 @@
 body{
   background-color: rgb(40, 39, 43);
 }
+h3{
+  display: inline-block;
+  width: 200px;
+  margin: 50px;
+}
+#container{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
