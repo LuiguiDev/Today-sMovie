@@ -7,11 +7,9 @@ const getMovie = async() =>{
       console.log(data.title) 
       let movie = ''
       movie = `
-        <div class = "poster">
         <img class="image" src="https://image.tmdb.org/t/p/w500/${data.poster_path}" 
-        </div> 
         <H1>${data.title}</H1>`
-      document.getElementById('liked').innerHTML = (movie)
+      document.getElementById('poster').innerHTML = (movie)
     }else if (response.status == 401){
       console.log('Invalid Key')
     }else if (response.status == 404){
@@ -35,10 +33,10 @@ const getRecommendations = async() =>{
       let movies = []  
       data.results.forEach(movie => {
         movies += `
-          <div class = "poster">
-            <img class="image" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" 
-          </div> 
+        <div class="recommendations">
+          <img class="container__images" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" 
           <h3>${movie.title}</h3>
+        </div>
         `;
       });            
       document.getElementById('container').innerHTML = movies

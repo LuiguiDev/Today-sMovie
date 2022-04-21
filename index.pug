@@ -2,10 +2,11 @@ extend modules/template.pug
 block content
 
   script(src="logic.js")
-  
-  h3= 'Por que te gustó:'
-  div(id = "liked")
-  h3= 'Te recomendamos:'
-  +poster
-  +poster
-  
+
+  .presentation  
+    .liked
+      h3= 'Por que te gustó:'
+      div(class="poster" id="poster")
+      h3= 'Te recomendamos:'
+    .container(id="container")
+    

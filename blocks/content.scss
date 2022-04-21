@@ -1,14 +1,44 @@
 body{
   background-color: rgb(40, 39, 43);
 }
-h3{
-  display: inline-block;
-  width: 200px;
-  margin: 50px;
-}
-#container{
+.presentation{
   display: flex;
-  justify-content: center;
-  align-content: center;
   flex-wrap: wrap;
+  .liked{
+    width: 25%;
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    .poster{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      img{
+        width: inherit;
+      }
+    }
+  }
+  .container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 66%;
+    .recommendations{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      margin: 10px;
+    }
+    &__images{
+      width: 150px;
+    }
+  }
 }
+
