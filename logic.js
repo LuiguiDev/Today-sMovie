@@ -8,9 +8,10 @@ const getMovie = async() =>{
       console.log(data.title) 
       let movie = ''
       movie = `
+        <h3>Si te gustó</h3>
         <img class="image" src="https://image.tmdb.org/t/p/w500/${data.poster_path}"/> 
         <H2>${data.title}</H2>`
-      document.getElementById('poster').innerHTML = (movie)
+      document.getElementById('liked').innerHTML = (movie)
     }else if (response.status == 401){
       console.log('Invalid Key')
     }else if (response.status == 404){

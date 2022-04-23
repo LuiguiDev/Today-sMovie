@@ -7,23 +7,15 @@
   grid-template-columns: 1fr 3fr;
   gap: 20px;
   .liked{    
-    text-align: center;
-    /* width: 25%;
-    padding: 25px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center; */
-    .poster{
-      /* width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center; */  
-      img{
-        width: 250px;
-      }    
-    }
+    align-content: center;
+    justify-content: center;
+    img{
+      width: 250px;
+      border-radius: 10px;
+      margin: 10px 0px;
+    }        
   }
   .recommendations{
     text-align: center;
@@ -47,6 +39,7 @@
         width: 150px;
         &__images{
         width: 150px;
+        border-radius: 5px;
         }
       }
     }
