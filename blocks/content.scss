@@ -14,29 +14,37 @@
     img{
       width: 250px;
       border-radius: 10px;
-      margin: 10px 0px;
+      margin: $margin-text 0px;
     }        
   }
   .recommendations{
     text-align: center;
-    height: 99vh;
+    height: 90vh;
     overflow: hidden;
+    margin-top: $margin-text;
+    overflow-x: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
     .container{
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(11, 1fr);
       gap: 20px;
       text-align: center;
+      margin-top: $margin-text;
       /* display: flex;
       justify-content: center;
       align-content: center;
       flex-wrap: wrap;
       width: 66%; */
-      .cards{      
+      .cards{
+        height: 100%;      
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        align-content: flex-start;
         width: 150px;
+        margin: auto;
         &__images{
         width: 150px;
         border-radius: 5px;

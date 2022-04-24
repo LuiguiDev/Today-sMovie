@@ -1,3 +1,5 @@
+$margin-text: 15px;
+
 h1{
   display: inline-block;
   margin: 0;
@@ -28,5 +30,11 @@ body{
 img{
   width: 100px;
 }
-
+.recommendations::-webkit-scrollbar{
+  height: 10px;
+}
+.recommendations::-webkit-scrollbar-thumb{
+  background: rgb(238, 238, 238);
+  border-radius: 3px;
+}
 

@@ -33,6 +33,15 @@ img {
   width: 100px;
 }
 
+.recommendations::-webkit-scrollbar {
+  height: 10px;
+}
+
+.recommendations::-webkit-scrollbar-thumb {
+  background: #eeeeee;
+  border-radius: 3px;
+}
+
 .presentation {
   width: 90%;
   margin: auto;
@@ -59,20 +68,25 @@ img {
 .presentation .liked img {
   width: 250px;
   border-radius: 10px;
-  margin: 10px 0px;
+  margin: 15px 0px;
 }
 .presentation .recommendations {
   text-align: center;
-  height: 99vh;
+  height: 90vh;
   overflow: hidden;
+  margin-top: 15px;
+  overflow-x: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 .presentation .recommendations .container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr;
+  grid-template-columns: repeat(11, 1fr);
   gap: 20px;
   text-align: center;
+  margin-top: 15px;
   /* display: flex;
   justify-content: center;
   align-content: center;
@@ -80,6 +94,7 @@ img {
   width: 66%; */
 }
 .presentation .recommendations .container .cards {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,7 +106,10 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
   width: 150px;
+  margin: auto;
 }
 .presentation .recommendations .container .cards__images {
   width: 150px;

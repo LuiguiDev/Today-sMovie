@@ -1,4 +1,6 @@
 let search = 315635
+let page = 1
+
 const getMovie = async() =>{
   try {
     const response = await fetch(`https://api.themoviedb.org/3/movie/${search}?api_key=e4b30a1db5bc22a592d00146854380c7&language=en-US`);     
@@ -27,7 +29,7 @@ getMovie();
 
 const getRecommendations = async() =>{
   try {  
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${search}/recommendations?api_key=e4b30a1db5bc22a592d00146854380c7&page=1`);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${search}/recommendations?api_key=e4b30a1db5bc22a592d00146854380c7&page=${page}`);
   
     if (response.status === 200){
       const data = await response.json();
