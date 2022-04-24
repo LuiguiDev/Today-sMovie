@@ -57,3 +57,12 @@ const getRecommendations = async() =>{
   }
 }
 getRecommendations();
+
+const nextPageLeft = () =>{
+  let left = document.getElementById('container')
+  left.scrollBy(-850, 0)
+}
+const nextPageRight = () =>{
+  let right = document.getElementById('container')
+  right.scrollBy(850, 0)
+}
