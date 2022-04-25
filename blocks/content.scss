@@ -60,14 +60,18 @@
   justify-content: center;
   width: 30px;
   margin: auto;
-  .point-btn{
+  margin-top: $margin-text;
+  .btn{
     height: 10px;
     width: 5px;
     border-radius: 6px;
-    background-color: white;
+    background-color: rgb(123, 121, 121);
     outline: none;
     border: none;
     margin: 0 calc(50% - 5px);
     cursor: pointer;
+  }
+  .selected{
+    background-color: white;
   }
 }

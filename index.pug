@@ -8,9 +8,9 @@ block content
     .recommendations
       h3= 'Te recomendamos'
       .container(id="container")
-  .buttons
-    button(class='point-btn' onclick=nextPageLeft())
-    button(class='point-btn' onclick= nextPageRight())
+      .buttons
+        button(id= 'btn1' class= 'btn selected' onclick= 'nextPageLeft(); btnSelected()')
+        button(id= 'btn2' class= 'btn' onclick= 'nextPageRight(); btnSelected()')
 
       
     

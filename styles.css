@@ -131,14 +131,18 @@ img {
           justify-content: center;
   width: 30px;
   margin: auto;
+  margin-top: 15px;
 }
-.buttons .point-btn {
+.buttons .btn {
   height: 10px;
   width: 5px;
   border-radius: 6px;
-  background-color: white;
+  background-color: #7b7979;
   outline: none;
   border: none;
   margin: 0 calc(50% - 5px);
   cursor: pointer;
+}
+.buttons .selected {
+  background-color: white;
 }

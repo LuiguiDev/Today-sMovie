@@ -1,5 +1,25 @@
 let search = 315635
 let page = 1
+let movie = alert('Wite your favorite movie')
+
+const searchMovie = async()=>{
+  try{
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=e4b30a1db5bc22a592d00146854380c7&language=en-US&query=${movie}&page=1&include_adult=false`);
+
+    if (response.status === 200){
+      const data = await response.json();
+      console.log(data)
+    }else if (response.status == 401){
+      console.log('Invalid Key')
+    }else if (response.status == 404){
+      console.log('This movie doesn\'t exist')
+    }else{
+      console.log('Unexpected error')   
+    }
+  }catch(error){
+    console.log(error)
+  };  
+}
 
 const getMovie = async() =>{
   try {
@@ -7,7 +27,7 @@ const getMovie = async() =>{
   
     if (response.status === 200){      
       const data = await response.json();
-      console.log(data.title) 
+      /* console.log(data.title) */ 
       let movie = ''
       movie = `
         <h3>Si te gustó</h3>
@@ -65,4 +85,17 @@ const nextPageLeft = () =>{
 const nextPageRight = () =>{
   let right = document.getElementById('container')
   right.scrollBy(850, 0)
+}
+
+const btnSelected =() =>{
+  const btn1 = document.querySelector('#btn1');
+  const btn2 = document.querySelector('#btn2');
+
+  if(btn1.classList.contains('selected')){
+    btn1.classList.remove('selected');
+    btn2.classList.add('selected');
+  }else{
+    btn1.classList.add('selected');
+    btn2.classList.remove('selected');    
+  }
 }
