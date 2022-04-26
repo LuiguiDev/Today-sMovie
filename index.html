@@ -11,11 +11,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <body>
     <script src="index.js"></script>
-    <form action=""> 
-      <input type="text" id="entry">
+    <form class="search" action="">
+      <label for="">Get a list of recommended movies from a movie</label>
+      <input type="text" id="entry" placeholder="Write yout favorite movie">
       <button type="button" onclick="getResults()"> <a>Show results</a></button>
     </form>
-    <div class="presentation"> 
+    <div class="presentation hide">
       <div class="liked" id="liked">     </div>
       <div class="recommendations">
         <h3>Te recomendamos</h3>

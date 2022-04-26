@@ -1,3 +1,39 @@
+.search{
+  width: 600px;
+  height: 100px;
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  label{
+    display: flex;
+    color: white;
+    font-family: 'Open sans';
+    font-size: 18px;
+  }
+  input{
+    border: none;
+    text-decoration: none;
+    width: 350px;
+    height: 40px;
+    padding: 0;
+    font-family: 'Open sans';
+    font-size: 18px;
+    text-align: center;
+  }
+  button{
+    text-decoration: none;
+    width: 150px;
+    height: 40px;
+    border: none;
+    font-family: 'Open sans';
+    a{
+      font-weight: 500;  
+      font-size: 18px;
+  
+    }
+  }
+}
 .presentation{  
   width: 90%;
   height: auto;
@@ -54,6 +90,9 @@
       }
     }    
   } 
+}
+.hide{
+  display: none;
 }
 .buttons{
   display: flex;

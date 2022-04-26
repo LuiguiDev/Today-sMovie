@@ -2,12 +2,13 @@ extend modules/searchTemplate.pug
 block search
 
   script(src="index.js")
-  form(action="") 
-    input(type="text" id='entry')
+  form(action="" class='search')
+    label(for="")='Get a list of recommended movies from a movie' 
+    input(type="text" id='entry' placeholder='Write yout favorite movie')
     button(type='button' onclick= "getResults()") 
       a="Show results" 
 
-  .presentation  
+  .presentation(class='hide')
     div(class='liked' id='liked')      
     .recommendations
       h3= 'Te recomendamos'

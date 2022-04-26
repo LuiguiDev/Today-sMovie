@@ -21,12 +21,7 @@ const searchMovie = async(liked)=>{
     console.log(error)
   };  
 }
-const getResults = async()=>{
-  let input = document.getElementById('entry')
-  let liked = input.value
-  movieId = await searchMovie(liked)  
-  return movieId
-}
+
 //2nd part of JS code
 
 const getMovie = async() =>{
@@ -81,13 +76,15 @@ const getRecommendations = async() =>{
     console.log(error)
   }
 }
-if(movieId === NaN){
-  alert('Type a movie')
-}else{  
-  getMovie();
-  getRecommendations();
+const getResults= async()=>{
+  let input = document.getElementById('entry');
+  let liked = input.value;
+  let presentation = document.querySelector('.presentation')
+  presentation.classList.remove('hide')
+  movieId = await searchMovie(liked)
+  getMovie(movieId);
+  getRecommendations(movieId);
 }
-
 
 //Code for buttons and animations
 const nextPageLeft = () =>{

@@ -46,6 +46,49 @@ img {
   display: none;
 }
 
+.search {
+  width: 600px;
+  height: 100px;
+  margin: 50px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.search label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  font-family: "Open sans";
+  font-size: 18px;
+}
+.search input {
+  border: none;
+  text-decoration: none;
+  width: 350px;
+  height: 40px;
+  padding: 0;
+  font-family: "Open sans";
+  font-size: 18px;
+  text-align: center;
+}
+.search button {
+  text-decoration: none;
+  width: 150px;
+  height: 40px;
+  border: none;
+  font-family: "Open sans";
+}
+.search button a {
+  font-weight: 500;
+  font-size: 18px;
+}
+
 .presentation {
   width: 90%;
   height: auto;
@@ -120,6 +163,10 @@ img {
 .presentation .recommendations .container .cards__images {
   width: 150px;
   border-radius: 5px;
+}
+
+.hide {
+  display: none;
 }
 
 .buttons {
