@@ -1,7 +1,11 @@
-extend modules/template.pug
-block content
+extend modules/searchTemplate.pug
+block search
 
-  script(src="logic.js")
+  script(src="index.js")
+  form(action="") 
+    input(type="text" id='entry')
+    button(type='button' onclick= "getResults()") 
+      a="Show results" 
 
   .presentation  
     div(class='liked' id='liked')      
@@ -11,6 +15,3 @@ block content
       .buttons
         button(id= 'btn1' class= 'btn selected' onclick= 'nextPageLeft(); btnSelected()')
         button(id= 'btn2' class= 'btn' onclick= 'nextPageRight(); btnSelected()')
-
-      
-    

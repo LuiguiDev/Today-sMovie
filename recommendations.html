@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es"> 
+  <head>
+    <title>Today'sMovie</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This web app will recomend you a movie for today">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="desktop.css" media="screen and (max-width:480px)"><link rel="preconnect" href="https://fonts.googleapis.com">
+  </head><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <body>
+    <script src="index.js"></script>
+    <div class="presentation"> 
+      <div class="liked" id="liked">     </div>
+      <div class="recommendations">
+        <h3>Te recomendamos</h3>
+        <div class="container" id="container"></div>
+        <div class="buttons">
+          <button class="btn selected" id="btn1" onclick="nextPageLeft(); btnSelected()"></button>
+          <button class="btn" id="btn2" onclick="nextPageRight(); btnSelected()"></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
