@@ -1,9 +1,28 @@
+.search{
+  width: 90%;
+  height: auto;
+  text-align: center;
+  gap: 15px;
+}
 .presentation{
   display: flex;
   flex-direction: column;
   margin: auto;
   .liked{
     display: flex;
-    flex-direction: column;      
+    flex-direction: column;  
+    align-items: center;    
+  } 
+  .recommendations{
+    .container{
+      grid-template-columns: 1fr 1fr;
+      grid-auto-flow: row;
+    }
+    .buttons{
+      display: none;
+    }
   }
+}
+.hide{
+  display: none;
 }
