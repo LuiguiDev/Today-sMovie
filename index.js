@@ -1,6 +1,7 @@
 let search = 315635
 let page = 1
 let movieId = NaN
+let aboutMovies = []
 
 const searchMovie = async(liked)=>{
   try{
@@ -48,23 +49,40 @@ const getMovie = async() =>{
     console.log(error)
   };
 }
+const showMoreInfo =()=>{
+  const moreInfo = document.getElementById('moreInfo')  
+  moreInfo.classList.add('show')  
+  console.log('Card 1 selected')
+}
+
 const getRecommendations = async() =>{
   try {  
     const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=e4b30a1db5bc22a592d00146854380c7&page=${page}`);
   
     if (response.status === 200){
       const data = await response.json();
-      console.log(data)
+      aboutMovies = data.results
+      let poster = data.poster_path 
       let movies = []  
+      let i = -1
+      
       data.results.forEach(movie => {
-        movies += `
-        <div class="cards">
-          <img class="cards__images" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/>
+        i++
+        movies += `<a class="cards">
+          <img class="cards__images" id="${i}" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/>
           <h3>${movie.title}</h3>
-        </div>
-        `;
+          </a>`;
       });            
-      document.getElementById('container').innerHTML = movies  
+      const cards = document.getElementById('container');
+      cards.innerHTML = movies;     
+
+      cards.addEventListener('click', (e) => {
+        if(e.target && e.target.tagName === 'IMG'){
+          IDs = e.target.id
+          console.log(aboutMovies[IDs].overview)          
+        }
+      });
+      return poster  
     }else if (response.status == 401){
       console.log('Invalid Key')
     }else if (response.status == 404){
@@ -76,6 +94,8 @@ const getRecommendations = async() =>{
     console.log(error)
   }
 }
+
+
 const getResults= async()=>{
   let input = document.getElementById('entry');
   let liked = input.value;
@@ -86,6 +106,47 @@ const getResults= async()=>{
   getRecommendations(movieId);
 }
 
+//Experimenting with the API
+const getKeywords = async () => {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/keywords?api_key=e4b30a1db5bc22a592d00146854380c7`);
+
+    if (response.status === 200){
+      const data = await response.json();
+      /* data.keywords.forEach(keyword => {
+        console.log(keyword.name)
+      }) */
+      console.log(data.keywords)
+    }else if (response.status == 401){
+      console.log('Invalid Key')
+    }else if (response.status == 404){
+      console.log('This movie doesn\'t exist')
+    }else{
+      console.log('Unexpected error')   
+    }
+  }catch(error){
+    console.log(error)
+  }
+}
+/* const getRDetails = async () => {
+  try{
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=e4b30a1db5bc22a592d00146854380c7`)
+
+    if (response.status === 200){
+      const data = await response.json();
+      console.log(data.overview)
+    }else if (response.status == 401){
+      console.log('Invalid Key')
+    }else if (response.status == 404){
+      console.log('This movie doesn\'t exist')
+    }else{
+      console.log('Unexpected error')   
+    }
+  }catch(error){
+    console.log(error)
+  }    
+} */
+
 //Code for buttons and animations
 const nextPageLeft = () =>{
 let left = document.getElementById('container')
@@ -95,7 +156,6 @@ const nextPageRight = () =>{
 let right = document.getElementById('container')
 right.scrollBy(850, 0)
 }
-
 const btnSelected =() =>{
 const btn1 = document.querySelector('#btn1');
 const btn2 = document.querySelector('#btn2');
@@ -107,3 +167,15 @@ if(btn1.classList.contains('selected')){
   btn1.classList.add('selected');
   btn2.classList.remove('selected');    
 }}
+
+
+const movieSelected = async()=>{
+
+  const card =  document.getElementById('1')
+  card.addEventListener('click', showMoreInfo())
+}
+
+
+//Calling functions
+/* getKeywords()
+ */

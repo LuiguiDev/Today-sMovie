@@ -1,5 +1,5 @@
-extend modules/searchTemplate.pug
-block search
+extend modules/template.pug
+block content
 
   script(src="index.js")
   form(action="" class='search')
@@ -16,3 +16,6 @@ block search
       .buttons
         button(id= 'btn1' class= 'btn selected' onclick= 'nextPageLeft(); btnSelected()')
         button(id= 'btn2' class= 'btn' onclick= 'nextPageRight(); btnSelected()')
+  
+  #moreInfo
+    

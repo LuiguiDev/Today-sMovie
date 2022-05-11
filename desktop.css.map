@@ -1,0 +1,13 @@
+{
+    "version": 3,
+    "mappings": "AGAA,AAAA,OAAO,AAAA,CACL,KAAK,CAAE,GAAG,CACV,MAAM,CAAE,IAAI,CACZ,UAAU,CAAE,MAAM,CAClB,GAAG,CAAE,IAAI,CACV,AACD,AAAA,aAAa,AAAA,CACX,OAAO,CAAE,IAAI,CACb,cAAc,CAAE,MAAM,CACtB,MAAM,CAAE,IAAI,CAeb,AAlBD,AAIE,aAJW,CAIX,MAAM,AAAA,CACJ,OAAO,CAAE,IAAI,CACb,cAAc,CAAE,MAAM,CACtB,WAAW,CAAE,MAAM,CACpB,AARH,AAUI,aAVS,CASX,gBAAgB,CACd,UAAU,AAAA,CACR,qBAAqB,CAAE,OAAO,CAC9B,cAAc,CAAE,GAAG,CACpB,AAbL,AAcI,aAdS,CASX,gBAAgB,CAKd,QAAQ,AAAA,CACN,OAAO,CAAE,IAAI,CACd,AAGL,AAAA,KAAK,AAAA,CACH,OAAO,CAAE,IAAI,CACd",
+    "sources": [
+        "desktop.scss",
+        "blocks/desktop/globals.scss",
+        "blocks/desktop/header.scss",
+        "blocks/desktop/content.scss",
+        "blocks/desktop/footer.scss"
+    ],
+    "names": [],
+    "file": "desktop.css"
+}
