@@ -49,12 +49,23 @@ const getMovie = async() =>{
     console.log(error)
   };
 }
-const showMoreInfo =()=>{
-  const moreInfo = document.getElementById('moreInfo')  
-  moreInfo.classList.add('show')  
-  console.log('Card 1 selected')
-}
-
+const showMoreInfo =(cards)=>{
+  cards.addEventListener('click', (e) => {
+    if(e.target && e.target.tagName === 'IMG'){
+      const extended = document.getElementById('extended')
+      let info = []
+      IDs = e.target.id
+      let target = document.getElementById(IDs)
+      
+      info = 
+        `<img class="extended__image" src="${target.getAttribute('src')}"/>
+        <h3 class="extended__title"> ${aboutMovies[IDs].title} </h3>
+        <p class="extended__text"> ${aboutMovies[IDs].overview} </p>`;
+      extended.innerHTML = info
+      console.log(aboutMovies[IDs].overview)          
+    }
+  })
+};
 const getRecommendations = async() =>{
   try {  
     const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=e4b30a1db5bc22a592d00146854380c7&page=${page}`);
@@ -75,14 +86,8 @@ const getRecommendations = async() =>{
       });            
       const cards = document.getElementById('container');
       cards.innerHTML = movies;     
+      showMoreInfo(cards)   
 
-      cards.addEventListener('click', (e) => {
-        if(e.target && e.target.tagName === 'IMG'){
-          IDs = e.target.id
-          console.log(aboutMovies[IDs].overview)          
-        }
-      });
-      return poster  
     }else if (response.status == 401){
       console.log('Invalid Key')
     }else if (response.status == 404){
