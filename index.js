@@ -1,4 +1,4 @@
-let search = 315635
+let search = 168259
 let page = 1
 let movieId = NaN
 let aboutMovies = []
@@ -59,14 +59,17 @@ const showMoreInfo =(cards)=>{
       
       info = 
         `<img class="extended__image" src="${target.getAttribute('src')}"/>
-        <h3 class="extended__title"> ${aboutMovies[IDs].title} </h3>
-        <p class="extended__text"> ${aboutMovies[IDs].overview} </p>`;
+        <div class="extended__info"> 
+          <h3 class="title"> ${aboutMovies[IDs].title} </h3>
+          <p class="text"> ${aboutMovies[IDs].overview} </p>
+        </div>`;
       extended.innerHTML = info
+      extended.classList.remove('hide')
       console.log(aboutMovies[IDs].overview)          
     }
   })
 };
-const getRecommendations = async() =>{
+const getRecommendations = async(movieId) =>{
   try {  
     const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=e4b30a1db5bc22a592d00146854380c7&page=${page}`);
   
@@ -182,5 +185,4 @@ const movieSelected = async()=>{
 
 
 //Calling functions
-/* getKeywords()
- */
+/* getKeywords()*/
