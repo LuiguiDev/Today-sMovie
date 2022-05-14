@@ -49,27 +49,38 @@ const getMovie = async() =>{
     console.log(error)
   };
 }
-const showMoreInfo =(cards)=>{
-  cards.addEventListener('click', (e) => {
+const closeInfo = (extended) =>{
+  const cross = document.getElementById('close')
+  cross.addEventListener('click', function (){
+    extended.classList.add('hide')
+  })
+}
+const showMoreInfo = (cards) =>{
+  cards.addEventListener('click', (e) =>{
     if(e.target && e.target.tagName === 'IMG'){
       const extended = document.getElementById('extended')
       let info = []
       IDs = e.target.id
       let target = document.getElementById(IDs)
       
-      info = 
-        `<img class="extended__image" src="${target.getAttribute('src')}"/>
-        <div class="extended__info"> 
-          <h3 class="title"> ${aboutMovies[IDs].title} </h3>
-          <p class="text"> ${aboutMovies[IDs].overview} </p>
-        </div>`;
+      info = `
+        <i class="icon-cross" id="close"></i>
+        <div class="view">
+          <img class="image" src="${target.getAttribute('src')}"/>
+          <div class="info"> 
+            <h3 class="title"> ${aboutMovies[IDs].title} </h3>
+            <p class="text"> ${aboutMovies[IDs].overview} </p>
+          </div>
+        </div>
+        `;
       extended.innerHTML = info
       extended.classList.remove('hide')
-      console.log(aboutMovies[IDs].overview)          
+      console.log(aboutMovies[IDs].overview)
+      closeInfo(extended)  
     }
   })
 };
-const getRecommendations = async(movieId) =>{
+const getRecommendations = async() =>{
   try {  
     const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=e4b30a1db5bc22a592d00146854380c7&page=${page}`);
   
@@ -186,3 +197,4 @@ const movieSelected = async()=>{
 
 //Calling functions
 /* getKeywords()*/
+

@@ -40,19 +40,39 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 150px;
-  padding: 30px 15px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px 15px 30px;
   gap: 15px;
   position: fixed;
   bottom: 0;
   background-color: #28272b;
-  border-radius: 15px 0 0 0;
+  border-radius: 15px 15px 0 0;
   -webkit-box-shadow: 0 -5px 20px black;
           box-shadow: 0 -5px 20px black;
 }
-.extended__info {
+.extended .view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 150px;
+  gap: 15px;
+}
+.extended .view .info {
   overflow: scroll;
 }
 .hide {
   display: none;
+}
+
+#close {
+  display: block;
+  font-size: 20px;
+  text-align: end;
 }

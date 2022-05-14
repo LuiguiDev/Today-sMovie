@@ -25,21 +25,32 @@
 }
 .extended{
   display: flex;
-  height: 150px;
-  padding: 30px 15px;
+  flex-direction: column;
+  padding: 10px 15px 30px;
   gap: 15px;
   position: fixed;
   bottom: 0;
   background-color: rgb(40, 39, 43);
-  border-radius: 15px 0 0 0;
+  border-radius: 15px 15px 0 0;
   box-shadow: 0 -5px 20px black;
-  &__image{}
-  &__info{
-    overflow: scroll;
-    .text{
+  .view{
+    display: flex;
+    flex-direction: row;
+    height: 150px;
+    gap: 15px;
+    .image{}
+    .info{
+      overflow: scroll;
+      .text{
+      }
     }
   }
 }
 .hide{
   display: none;
+}
+#close{
+  display: block;
+  font-size: 20px;
+  text-align: end;
 }
