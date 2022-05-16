@@ -26,6 +26,7 @@
 .extended{
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 10px 15px 30px;
   gap: 15px;
   position: fixed;
@@ -33,6 +34,15 @@
   background-color: rgb(40, 39, 43);
   border-radius: 15px 15px 0 0;
   box-shadow: 0 -5px 20px black;
+  animation-name: displayInfo;
+  animation-duration: 1s;
+  #close{
+    display: block;
+    width: 50px;
+    height: 5px;
+    background-color: white;
+    border-radius: 2px;
+  }
   .view{
     display: flex;
     flex-direction: row;
@@ -46,11 +56,13 @@
     }
   }
 }
+.close{
+  animation-name: hideInfo;
+  animation-duration: 1s;
+  -o-animation-fill-mode: forwards;
+}
 .hide{
   display: none;
 }
-#close{
-  display: block;
-  font-size: 20px;
-  text-align: end;
-}
+
+

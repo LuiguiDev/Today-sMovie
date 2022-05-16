@@ -44,6 +44,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px 15px 30px;
   gap: 15px;
   position: fixed;
@@ -52,6 +55,17 @@
   border-radius: 15px 15px 0 0;
   -webkit-box-shadow: 0 -5px 20px black;
           box-shadow: 0 -5px 20px black;
+  -webkit-animation-name: displayInfo;
+          animation-name: displayInfo;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+.extended #close {
+  display: block;
+  width: 50px;
+  height: 5px;
+  background-color: white;
+  border-radius: 2px;
 }
 .extended .view {
   display: -webkit-box;
@@ -67,12 +81,14 @@
 .extended .view .info {
   overflow: scroll;
 }
-.hide {
-  display: none;
+.close {
+  -webkit-animation-name: hideInfo;
+          animation-name: hideInfo;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -o-animation-fill-mode: forwards;
 }
 
-#close {
-  display: block;
-  font-size: 20px;
-  text-align: end;
+.hide {
+  display: none;
 }

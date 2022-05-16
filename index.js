@@ -52,7 +52,10 @@ const getMovie = async() =>{
 const closeInfo = (extended) =>{
   const cross = document.getElementById('close')
   cross.addEventListener('click', function (){
-    extended.classList.add('hide')
+    extended.classList.add('close')
+    setTimeout(() => {
+      extended.classList.add('hide');
+    }, 1000)
   })
 }
 const showMoreInfo = (cards) =>{
@@ -64,7 +67,7 @@ const showMoreInfo = (cards) =>{
       let target = document.getElementById(IDs)
       
       info = `
-        <i class="icon-cross" id="close"></i>
+        <i class="line" id="close"></i>
         <div class="view">
           <img class="image" src="${target.getAttribute('src')}"/>
           <div class="info"> 
@@ -74,6 +77,7 @@ const showMoreInfo = (cards) =>{
         </div>
         `;
       extended.innerHTML = info
+      extended.classList.remove('close')
       extended.classList.remove('hide')
       console.log(aboutMovies[IDs].overview)
       closeInfo(extended)  
@@ -82,7 +86,7 @@ const showMoreInfo = (cards) =>{
 };
 const getRecommendations = async() =>{
   try {  
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=e4b30a1db5bc22a592d00146854380c7&page=${page}`);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${search}/recommendations?api_key=e4b30a1db5bc22a592d00146854380c7&page=${page}`);
   
     if (response.status === 200){
       const data = await response.json();
@@ -197,4 +201,4 @@ const movieSelected = async()=>{
 
 //Calling functions
 /* getKeywords()*/
-
+getRecommendations(search)

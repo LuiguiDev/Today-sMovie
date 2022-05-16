@@ -22,7 +22,7 @@ h3 {
   margin: 0;
   color: white;
   font-family: "Open sans", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1em;
 }
 
@@ -79,6 +79,44 @@ img {
   content: "";
 }
 
+@-webkit-keyframes displayInfo {
+  from {
+    bottom: -450px;
+  }
+  to {
+    bottom: 0;
+  }
+}
+
+@keyframes displayInfo {
+  from {
+    bottom: -450px;
+  }
+  to {
+    bottom: 0;
+  }
+}
+@-webkit-keyframes hideInfo {
+  from {
+    bottom: 0px;
+    display: -webkit-box;
+    display: flex;
+  }
+  to {
+    bottom: -450px;
+  }
+}
+@keyframes hideInfo {
+  from {
+    bottom: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  to {
+    bottom: -450px;
+  }
+}
 .search {
   width: 600px;
   height: 100px;
