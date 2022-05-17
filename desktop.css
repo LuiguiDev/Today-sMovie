@@ -47,7 +47,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px 15px 30px;
+  padding: 0px 15px 15px;
   gap: 15px;
   position: fixed;
   bottom: 0;
@@ -61,11 +61,13 @@
           animation-duration: 1s;
 }
 .extended #close {
-  display: block;
+  /* display: block;
   width: 50px;
   height: 5px;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 2px; */
+  font-size: 30px;
+  height: 21px;
 }
 .extended .view {
   display: -webkit-box;
@@ -81,6 +83,10 @@
 .extended .view .info {
   overflow: scroll;
 }
+.line {
+  height: 150px;
+}
+
 .close {
   -webkit-animation-name: hideInfo;
           animation-name: hideInfo;
@@ -91,4 +97,8 @@
 
 .hide {
   display: none;
+}
+
+.fill {
+  margin-bottom: 240px;
 }
