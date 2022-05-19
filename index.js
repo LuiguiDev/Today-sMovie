@@ -62,15 +62,21 @@ const closeInfo = (extended) =>{
     }, 300) 
   })    
 }
+const viewMore = (extended, VMid) =>{
+  extended.addEventListener('click', (e) =>{
+    if(e.target && e.target.tagName === 'H4'){
+      getReviews(VMid)
+    }
+  })
+}
 const showMoreInfo = (cards) =>{
   cards.addEventListener('click', (e) =>{
     if(e.target && e.target.tagName === 'IMG'){
       cards.classList.add('fill')
       const extended = document.getElementById('extended')
+      let IDs = e.target.id
+      let target = document.getElementById(IDs)      
       let info = []
-      IDs = e.target.id
-      let target = document.getElementById(IDs)
-      
       info = `
         <i class="icon-keyboard_arrow_down" id="close"></i>
         <div class="view">
@@ -85,29 +91,29 @@ const showMoreInfo = (cards) =>{
       extended.innerHTML = info
       extended.classList.remove('close')
       extended.classList.remove('hide')
-      console.log(aboutMovies[IDs].overview)
+      let VMid = aboutMovies[IDs].id
       closeInfo(extended)  
+      viewMore(extended, VMid)
     }
   })
 };
 //Show Recommendations
 const getRecommendations = async() =>{
   try {  
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${key}&page=${page}&language=es-mx`);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${search}/recommendations?api_key=${key}&page=${page}&language=es-mx`);
   
     if (response.status === 200){
       const data = await response.json();
       aboutMovies = data.results
-      let poster = data.poster_path 
       let movies = []  
-      let i = -1
+      let i = 0
       
       data.results.forEach(movie => {
-        i++
         movies += `<a class="cards">
-          <img class="cards__images" id="${i}" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/>
-          <h3>${movie.title}</h3>
-          </a>`;
+        <img class="cards__images" id="${i}" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/>
+        <h3>${movie.title}</h3>
+        </a>`;
+        i++
       });            
       const cards = document.getElementById('container');
       cards.innerHTML = movies;     
@@ -157,12 +163,14 @@ const getKeywords = async () => {
     console.log(error)
   }
 }
-const getImages = async () =>{
+const getReviews = async (VMid) =>{
   try{
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${search}/images?api_key=${key}`);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${VMid}/reviews?api_key=${key}`);
     if (response.status === 200){
       const data = await response.json();
-      console.log(data)
+      for(let i = 0; i < 5; i++){
+        console.log(data.results[i].content)
+      }
     }else if(response.status === 401){
       console.log('Invalid Key')
     }else if(response.status === 404){
@@ -198,6 +206,6 @@ if(btn1.classList.contains('selected')){
 
 //Calling functions
 /* getKeywords()*/
-/* getRecommendations(search)
-getImages(search) */
+getRecommendations(search)
+/* getImages(search)  */
 
