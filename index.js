@@ -61,7 +61,7 @@ const closeInfo = (extended, cards) =>{
     setTimeout(() => {
       extended.classList.add('hide');
       fill.classList.remove('fill')
-    }, 300); 
+    }, 600); 
   });  
 }
 
@@ -89,17 +89,18 @@ const showMoreInfo = (cards) =>{
       extended.innerHTML = info
       extended.classList.remove('close')
       extended.classList.remove('hide')
+      let about = aboutMovies[IDs]
       let rate = aboutMovies[IDs].vote_average
       let VMid = aboutMovies[IDs].id
       closeInfo(extended)  
-      viewMore(rate, VMid)
+      viewMore(rate, VMid, about)
     }
   })
 };
 //Show tions
 const getRecommendations = async() =>{
   try {  
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${search}/recommendations?api_key=${key}&page=${page}&language=es-mx`);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${key}&page=${page}&language=es-mx`);
   
     if (response.status === 200){
       const data = await response.json();
@@ -140,15 +141,15 @@ const getResults= async()=>{
 }
 
 //Experimenting with the API
-const getKeywords = async () => {
+const getKeywords = async (search) => {
   try {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/keywords?api_key=${key}&language=${language}`);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${search}/keywords?api_key=${key}&language=${language}`);
 
     if (response.status === 200){
       const data = await response.json();
-      /* data.keywords.forEach(keyword => {
-        console.log(keyword.name)
-      }) */
+      data.keywords.forEach(keyword => {
+      console.log(keyword.name)
+      })
       console.log(data.keywords)
     }else if (response.status == 401){
       console.log('Invalid Key')
@@ -181,16 +182,36 @@ const getReviews = async (VMid) =>{
     console.log(error)
   }
 }
-const viewMore = async (rate, VMid) => {
+const getGenres = async (VMid) =>{
+  try{
+    const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${key}&language=${language}`);
+    if (response.status === 200){
+      const data = await response.json();
+      let i = 0
+      let genres = []
+      while(i < 5){
+        genres.push(` ${data.genres[i].name}`)
+        i++
+      }
+      return genres
+    };
+  }catch(error){
+    console.log(error)
+  }
+}
+const viewMore = async (rate, VMid, about) => {
   let reviews = await getReviews(VMid);
+  let genres = await getGenres(VMid);
   extended.addEventListener('click', (e) =>{
     if(e.target && e.target.tagName === 'H4'){
       let viewMore = document.getElementById('viewMore');
       let content = `
-        <p> Calificación: ${rate} </p>
-        <p> Reviews ${reviews} </p>
+        <p> Calificación: <span> ${about.vote_average} </span></p>
+        <p> Géneros: <span> ${genres} </span></p>
+        <p> Lanzamiento: <span> ${about.release_date} </span></p>
         `;
       viewMore.innerHTML = content;
+      console.log(reviews)
     };
   });
 }
@@ -218,6 +239,6 @@ if(btn1.classList.contains('selected')){
 
 //Calling functions
 /* getKeywords()*/
-getRecommendations(search)
+/* getRecommendations(search) */
 /* getImages(search)  */
 
