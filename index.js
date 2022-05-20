@@ -53,22 +53,18 @@ const getMovie = async() =>{
   };
 }
 //Extended Info about recommendations
-const closeInfo = (extended) =>{
+const closeInfo = (extended, cards) =>{
   const cross = document.getElementById('close')
+  const fill = document.getElementById('container')
   cross.addEventListener('click', function (){
     extended.classList.add('close')
     setTimeout(() => {
       extended.classList.add('hide');
-    }, 300) 
-  })    
+      fill.classList.remove('fill')
+    }, 300); 
+  });  
 }
-const viewMore = (extended, VMid) =>{
-  extended.addEventListener('click', (e) =>{
-    if(e.target && e.target.tagName === 'H4'){
-      getReviews(VMid)
-    }
-  })
-}
+
 const showMoreInfo = (cards) =>{
   cards.addEventListener('click', (e) =>{
     if(e.target && e.target.tagName === 'IMG'){
@@ -86,18 +82,21 @@ const showMoreInfo = (cards) =>{
             <p class="text"> ${aboutMovies[IDs].overview} </p>
           </div>        
         </div>
-        <h4> View more </h4>
+        <div class="viewMore" id="viewMore">
+          <h4> View more </h4>
+        </div>
         `;
       extended.innerHTML = info
       extended.classList.remove('close')
       extended.classList.remove('hide')
+      let rate = aboutMovies[IDs].vote_average
       let VMid = aboutMovies[IDs].id
       closeInfo(extended)  
-      viewMore(extended, VMid)
+      viewMore(rate, VMid)
     }
   })
 };
-//Show Recommendations
+//Show tions
 const getRecommendations = async() =>{
   try {  
     const response = await fetch(`https://api.themoviedb.org/3/movie/${search}/recommendations?api_key=${key}&page=${page}&language=es-mx`);
@@ -118,7 +117,6 @@ const getRecommendations = async() =>{
       const cards = document.getElementById('container');
       cards.innerHTML = movies;     
       showMoreInfo(cards)   
-
     }else if (response.status == 401){
       console.log('Invalid Key')
     }else if (response.status == 404){
@@ -163,13 +161,14 @@ const getKeywords = async () => {
     console.log(error)
   }
 }
-const getReviews = async (VMid) =>{
+const getReviews = async (VMid) =>{  
   try{
     const response = await fetch(`https://api.themoviedb.org/3/movie/${VMid}/reviews?api_key=${key}`);
     if (response.status === 200){
       const data = await response.json();
       for(let i = 0; i < 5; i++){
-        console.log(data.results[i].content)
+        /* console.log(data.results[i].content) */
+        return(data.results[i].content)
       }
     }else if(response.status === 401){
       console.log('Invalid Key')
@@ -181,6 +180,19 @@ const getReviews = async (VMid) =>{
   }catch(error){
     console.log(error)
   }
+}
+const viewMore = async (rate, VMid) => {
+  let reviews = await getReviews(VMid);
+  extended.addEventListener('click', (e) =>{
+    if(e.target && e.target.tagName === 'H4'){
+      let viewMore = document.getElementById('viewMore');
+      let content = `
+        <p> Calificación: ${rate} </p>
+        <p> Reviews ${reviews} </p>
+        `;
+      viewMore.innerHTML = content;
+    };
+  });
 }
 
 //Code for buttons and animations
