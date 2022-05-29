@@ -134,13 +134,17 @@ const getRecommendations = async() =>{
 const getResults= async()=>{
   let input = document.getElementById('entry');
   let liked = input.value;
-  let presentation = document.querySelector('.presentation')
-  setTimeout(() => {
-    presentation.classList.remove('hide')
-  }, 500);  
-  movieId = await searchMovie(liked)
-  getMovie(movieId);
-  getRecommendations(movieId);
+  if(liked.length === 0){
+    alert('No me has dicho nada')
+  }else{        
+    let presentation = document.querySelector('.presentation')
+    setTimeout(() => {
+      presentation.classList.remove('hide')
+    }, 900);  
+    movieId = await searchMovie(liked)
+    getMovie(movieId);
+    getRecommendations(movieId);
+  }
 }
 
 //Experimenting with the API
