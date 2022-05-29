@@ -5,13 +5,13 @@
   gap: 15px;
 }
 .search input {
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: white;
   color: black;
 }
 .search button {
-  border-radius: 5px;
-  background-color: #3535d5;
+  border-radius: 10px;
+  background-color: #094bbd;
 }
 
 .presentation {
