@@ -12,14 +12,14 @@
   <body>
     <script src="index.js"></script>
     <form class="search" action="">
-      <label for="">Get a list of recommended movies from a movie</label>
-      <input type="text" id="entry" placeholder="Write yout favorite movie">
-      <button type="button" onclick="getResults()"> <a>Show results</a></button>
+      <label for="">Te diré que películas ver en base a tu pelicula favorita</label>
+      <input type="text" id="entry" placeholder="Escribe tu película favorita">
+      <button type="button" onclick="getResults()" id="buttonShow"> <a>Mostrar</a></button>
     </form>
     <div class="presentation hide">
       <div class="liked" id="liked">     </div>
       <div class="recommendations">
-        <h3>Te recomendamos</h3>
+        <h3>Te recomiendo</h3>
         <div class="container" id="container"></div>
         <div class="buttons">
           <button class="btn selected" id="btn1" onclick="nextPageLeft(); btnSelected()"></button>

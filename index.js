@@ -236,7 +236,18 @@ if(btn1.classList.contains('selected')){
   btn1.classList.add('selected');
   btn2.classList.remove('selected');    
 }}
-
+/* const buttonAttention = () =>{
+  const button = document.getElementById('buttonShow')
+  const input = document.getElementById('entry')
+  input.addEventListener('change', () =>{
+    if(input.value === true){
+      button.classList.add('blueBright')
+    }else{
+      console.log('miss input')
+    }
+  })
+}
+buttonAttention() */
 //Calling functions
 /* getKeywords()*/
 /* getRecommendations(search) */

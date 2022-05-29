@@ -4,6 +4,13 @@
   text-align: center;
   gap: 15px;
 }
+.search input {
+  border-radius: 5px;
+}
+.search button {
+  border-radius: 5px;
+  background-color: #2b2bfd;
+}
 
 .presentation {
   display: -webkit-box;
@@ -51,7 +58,7 @@
   gap: 15px;
   position: fixed;
   bottom: 0;
-  background-color: #28272b;
+  background-color: rgb(40, 39, 43);
   border-radius: 15px 15px 0 0;
   -webkit-box-shadow: 0 -5px 20px black;
           box-shadow: 0 -5px 20px black;
@@ -102,3 +109,7 @@
 .fill {
   margin-bottom: 240px;
 }
+
+/* .blueBright{
+  background-color: #2b2bfd;
+} */

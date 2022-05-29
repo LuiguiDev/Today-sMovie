@@ -3,15 +3,15 @@ block content
 
   script(src="index.js")
   form(action="" class='search')
-    label(for="")='Get a list of recommended movies from a movie' 
-    input(type="text" id='entry' placeholder='Write yout favorite movie')
-    button(type='button' onclick= "getResults()") 
-      a="Show results" 
+    label(for="")='Te diré que películas ver en base a tu pelicula favorita'
+    input(type="text" id='entry' placeholder='Escribe tu película favorita')
+    button(type='button' onclick= "getResults()" id="buttonShow") 
+      a="Mostrar" 
 
   .presentation(class='hide')
     div(class='liked' id='liked')      
     .recommendations
-      h3= 'Te recomendamos'
+      h3= 'Te recomiendo'
       .container(id="container")
       .buttons
         button(id= 'btn1' class= 'btn selected' onclick= 'nextPageLeft(); btnSelected()')
