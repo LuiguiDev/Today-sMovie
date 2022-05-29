@@ -14,17 +14,18 @@
     <form class="search" action="">
       <label for="">Te diré que películas ver en base a tu pelicula favorita</label>
       <input type="text" id="entry" placeholder="Escribe tu película favorita">
-      <button type="button" onclick="getResults()" id="buttonShow"> <a>Mostrar</a></button>
+      <button type="button" onclick="getResults()" id="buttonShow"> <a>Dime</a></button>
     </form>
     <div class="presentation hide">
       <div class="liked" id="liked">     </div>
-      <div class="recommendations">
+      <div class="recommendations" id="recommendations">
         <h3>Te recomiendo</h3>
         <div class="container" id="container"></div>
         <div class="buttons">
           <button class="btn selected" id="btn1" onclick="nextPageLeft(); btnSelected()"></button>
           <button class="btn" id="btn2" onclick="nextPageRight(); btnSelected()"></button>
         </div>
+        <h3 class="thanks">Gracias por usar la App-Web 💙</h3>
       </div>
     </div>
     <div class="extended hide" id="extended"></div>

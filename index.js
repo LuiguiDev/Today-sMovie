@@ -55,7 +55,7 @@ const getMovie = async() =>{
 //Extended Info about recommendations
 const closeInfo = (extended, cards) =>{
   const cross = document.getElementById('close')
-  const fill = document.getElementById('container')
+  const fill = document.getElementById('recommendations')
   cross.addEventListener('click', function (){
     extended.classList.add('close')
     setTimeout(() => {
@@ -68,7 +68,8 @@ const closeInfo = (extended, cards) =>{
 const showMoreInfo = (cards) =>{
   cards.addEventListener('click', (e) =>{
     if(e.target && e.target.tagName === 'IMG'){
-      cards.classList.add('fill')
+      const recommendations = document.getElementById('recommendations')
+      recommendations.classList.add('fill')
       const extended = document.getElementById('extended')
       let IDs = e.target.id
       let target = document.getElementById(IDs)      
@@ -134,7 +135,9 @@ const getResults= async()=>{
   let input = document.getElementById('entry');
   let liked = input.value;
   let presentation = document.querySelector('.presentation')
-  presentation.classList.remove('hide')
+  setTimeout(() => {
+    presentation.classList.remove('hide')
+  }, 500);  
   movieId = await searchMovie(liked)
   getMovie(movieId);
   getRecommendations(movieId);

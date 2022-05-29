@@ -6,6 +6,8 @@
 }
 .search input {
   border-radius: 5px;
+  background-color: white;
+  color: black;
 }
 .search button {
   border-radius: 5px;
@@ -41,6 +43,9 @@
 }
 .presentation .recommendations .buttons {
   display: none;
+}
+.presentation .recommendations .thanks {
+  margin: 50px 0px;
 }
 
 .extended {

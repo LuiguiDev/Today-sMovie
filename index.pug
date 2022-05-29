@@ -6,16 +6,17 @@ block content
     label(for="")='Te diré que películas ver en base a tu pelicula favorita'
     input(type="text" id='entry' placeholder='Escribe tu película favorita')
     button(type='button' onclick= "getResults()" id="buttonShow") 
-      a="Mostrar" 
+      a="Dime" 
 
   .presentation(class='hide')
     div(class='liked' id='liked')      
-    .recommendations
+    .recommendations(id="recommendations")
       h3= 'Te recomiendo'
       .container(id="container")
       .buttons
         button(id= 'btn1' class= 'btn selected' onclick= 'nextPageLeft(); btnSelected()')
         button(id= 'btn2' class= 'btn' onclick= 'nextPageRight(); btnSelected()')
+      h3.thanks= 'Gracias por usar la App-Web 💙'
   
   .extended(id="extended" class="hide")
     
