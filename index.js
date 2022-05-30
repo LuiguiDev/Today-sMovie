@@ -137,10 +137,16 @@ const getResults= async()=>{
   if(liked.length === 0){
     alert('No me has dicho nada')
   }else{        
-    let presentation = document.querySelector('.presentation')
+    const button = document.getElementById('buttonShow')
+    const presentation = document.querySelector('.presentation')  
+    button.classList.add('bright')
+    setTimeout(() =>{
+      button.classList.remove('bright')
+    }, 300)    
     setTimeout(() => {
       presentation.classList.remove('hide')
-    }, 900);  
+    }, 900)
+    
     movieId = await searchMovie(liked)
     getMovie(movieId);
     getRecommendations(movieId);

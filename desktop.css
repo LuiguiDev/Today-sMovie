@@ -11,7 +11,10 @@
 }
 .search button {
   border-radius: 10px;
-  background-color: #094bbd;
+  background-color: #265fc3;
+}
+.search .bright {
+  background-color: rgb(103, 146, 220);
 }
 
 .presentation {

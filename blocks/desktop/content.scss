@@ -10,7 +10,10 @@
   }
   button{
     border-radius: 10px;
-    background-color: #094bbd;
+    background-color: #265fc3;
+  }
+  .bright{
+    background-color: rgb(103, 146, 220);  
   }
 }
 .presentation{
@@ -29,7 +32,7 @@
     }
     .buttons{
       display: none;
-    }
+    }    
     .thanks{
       margin: 50px 0px;
     }
